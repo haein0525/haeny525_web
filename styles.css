@@ -815,3 +815,434 @@ ul {
     margin-bottom: 28px;
   }
 }
+
+
+/* ================= Project Summary (Glass ver. no outer box) ================= */
+.summary-section {
+  background: linear-gradient(180deg, #fffaf6 0%, #fbe8d9 100%);
+  padding: 100px 0;
+}
+
+.summary-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.summary-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.summary-header h2 {
+  color: var(--accent);
+  font-weight: 900;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.summary-header p {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* ✅ flex 구조 (겉 배경 박스 제거) */
+.summary-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+  padding: 0;
+  background: transparent; /* 배경 없애기 */
+  border: none;            /* 테두리 제거 */
+  box-shadow: none;        /* 그림자 제거 */
+  flex-wrap: nowrap;
+}
+
+/* 왼쪽 glass 카드 */
+.summary-left {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+/* 개별 통계 카드 */
+.summary-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+  max-width: 420px;
+  margin-bottom: 20px;
+}
+
+.summary-stat {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 22px;
+  text-align: center;
+  box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.3),
+              0 4px 12px rgba(102, 52, 29, 0.08);
+  transition: 0.3s ease;
+}
+
+.summary-stat:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(102, 52, 29, 0.12);
+}
+
+.summary-number {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--accent);
+}
+
+.summary-label {
+  font-size: 1rem;
+  color: rgba(102, 52, 29, 0.8);
+  margin-top: 6px;
+}
+
+/* 텍스트 및 버튼 */
+.summary-subtitle {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin-top: 10px;
+}
+
+.summary-desc {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.summary-buttons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.summary-btn {
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s ease;
+  border: none;
+}
+
+.summary-btn.primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(102, 52, 29, 0.18);
+}
+
+.summary-btn.primary:hover {
+  background: #7b4a2a;
+}
+
+.summary-btn.outline {
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+}
+
+.summary-btn.outline:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* 오른쪽 이미지 */
+.summary-right {
+  flex: 1 1 50%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.summary-image-wrap {
+  width: 460px;
+  height: 520px;
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.2),
+              0 15px 30px rgba(102, 52, 29, 0.1);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.summary-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+/* 플로팅 카드 */
+.summary-floating {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  padding: 10px 14px;
+  box-shadow: 0 8px 20px rgba(102, 52, 29, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent);
+  font-weight: 600;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.summary-floating.card-1 {
+  top: 20px;
+  right: 20px;
+}
+
+.summary-floating.card-2 {
+  bottom: 20px;
+  left: 20px;
+}
+
+/* 반응형 */
+@media (max-width: 992px) {
+  .summary-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .summary-left,
+  .summary-right {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+
+  .summary-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-image-wrap {
+    width: 100%;
+    max-width: 400px;
+    height: 400px;
+  }
+}
+
+
+:root{
+  --bg1:#f8efe7;           /* 배경 그러데이션 톤 */
+  --bg2:#f5e6da;
+  --glass:rgba(255,255,255,0.7);
+  --glass-weak:rgba(255,255,255,0.55);
+  --txt-strong:#6e3f2f;    /* 제목 숫자 톤 */
+  --txt-sub:#7a5b4f;
+  --radius:20px;
+  --shadow:0 12px 40px rgba(0,0,0,.08);
+  --chip-shadow:0 10px 26px rgba(0,0,0,.06);
+}
+
+body{ background: linear-gradient(180deg,var(--bg1),var(--bg2)); }
+
+.proj-summary{
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 40px 16px 80px;
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 56px;
+}
+
+.col{ position: relative; }
+
+.visual-card{
+  position: relative;
+  background: var(--glass);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 12px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transform: translateY(-12px);           /* 카드 살짝 위로 */
+}
+
+.visual-card img{
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: calc(var(--radius) - 6px);
+  display:block;
+}
+
+.chip{
+  position: absolute;
+  background: var(--glass-weak);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 14px;
+  padding: 9px 12px;
+  font-size: 14px;
+  box-shadow: var(--chip-shadow);
+  white-space: nowrap;
+}
+.chip-top{ top: 14px; right: 36%; }
+.chip-bottom{ left: 14px; bottom: 14px; }
+
+.stats-grid{
+  margin: 18px auto 0;
+  padding: 0;
+  list-style: none;
+  display:grid;
+  grid-template-columns: repeat(2,minmax(0,1fr)); /* KPI 2×2 */
+  gap: 14px;
+  max-width: 680px;
+}
+
+.stat{
+  background: var(--glass);
+  border-radius: 16px;
+  padding: 18px 14px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+.stat strong{
+  display:block;
+  font-size: 28px;
+  line-height: 1.1;
+  color: var(--txt-strong);
+}
+.stat span{
+  display:block;
+  margin-top: 6px;
+  color: var(--txt-sub);
+  font-size: 14px;
+}
+
+/* 데스크탑: 좌우 2열로 정렬하고, 카드 살짝 더 위로 */
+@media (min-width: 980px){
+  .proj-summary{ grid-template-columns: 1fr 1fr; gap: 44px; }
+  .visual-card{ transform: translateY(-20px); }
+}
+
+/* 모바일 최적화 */
+@media (max-width: 480px){
+  .visual-card img{ height: 300px; }
+  .stats-grid{ grid-template-columns: 1fr 1fr; } /* 2열 유지 */
+}
+
+
+
+/* —— KPI 4박스 규격 통일 & 단위 옆붙임 —— */
+
+/* 컬럼: 카드 폭 = 그리드 폭 */
+.proj-summary .col{ display:flex; flex-direction:column; align-items:stretch; }
+
+/* 2×2 고정 + 카드폭 꽉 채움 */
+.proj-summary .stats-grid{
+  width:100%; max-width:none; margin-top:18px;
+  display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:16px;
+}
+
+/* 박스 규격 통일 */
+.proj-summary .stat{
+  background:rgba(255,255,255,.8);
+  backdrop-filter:blur(8px);
+  border-radius:16px;
+  padding:18px 14px;
+  text-align:center;
+  box-shadow:0 6px 20px rgba(0,0,0,.06);
+  min-height:110px;                 /* ← 높이 통일 포인트 */
+  display:flex; flex-direction:column; justify-content:center;
+}
+
+/* 숫자 + 단위를 한 줄로, 높이 균등 */
+.proj-summary .stat strong{
+  display:flex; align-items:flex-end; justify-content:center; gap:6px;
+  font-size:28px; line-height:1; color:#6e3f2f; font-weight:800;
+  letter-spacing:-0.02em;
+}
+.proj-summary .stat strong small{
+  font-size:.65em; font-weight:600; line-height:1;
+  transform:translateY(-1px);  /* 숫자 하단선 맞춤 */
+}
+
+/* 설명 텍스트 */
+.proj-summary .stat span{
+  margin-top:8px; font-size:14px; color:#7a5b4f; line-height:1.4;
+}
+
+/* 데스크탑 2열 유지 */
+@media (min-width:980px){
+  .proj-summary{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
+}
+
+:root{
+  --page-grad: linear-gradient(180deg,#f8efe7 0%, #f5e6da 100%);
+}
+
+/* 전체 배경 한 장 */
+.page-bg{
+  position: fixed;
+  inset: 0;
+  background: var(--page-grad);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* 섹션 배경은 투명으로 통일 */
+section, .section, .portfolio, .proj-summary, .work-list{
+  background: transparent !important;
+}
+
+/* 배경이 잘리던 요소들 */
+section, .section{ overflow: visible; }
+
+body {
+  background: linear-gradient(180deg, #fffaf6 0%, #fbe8d9 100%);
+}
+
+/* summary-section이 body 색을 따라가게 */
+.summary-section {
+  background: linear-gradient(180deg, #fffaf6 0%, #fbe8d9 100%) !important;
+}
+/* --- Portfolio 섹션 배경 통일 --- */
+#work,
+#work.section,
+#work .container,
+#work .grid {
+  background: transparent !important;   /* 섹션/컨테이너/그리드의 배경 제거 */
+  box-shadow: none !important;
+}
+
+/* 구분선/배경을 만드는 의도치 않은 가상요소 제거 */
+#work::before,
+#work::after,
+#work .grid::before,
+#work .grid::after {
+  content: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+/* 레이아웃 경계에서 색띠가 생기지 않게 섹션 패딩만 유지 */
+#work.section { padding-top: 64px; padding-bottom: 64px; }
+
+/* 카드 자체는 기존 유리/화이트 배경 유지 */
+#work .card { background: rgba(255,255,255,0.85); }
+
+/* 혹시 남아있는 줄무늬 방지용(페이지 전체) */
+html, body { background-attachment: fixed; }

@@ -83,3 +83,66 @@
 })();
 
 
+// // ✅ Project Summary Floating Animation (No Conflict)
+// (function () {
+//   const floats = document.querySelectorAll('.summary-floating');
+//   if (!floats.length) return;
+
+//   floats.forEach((card, i) => {
+//     card.style.opacity = 0;
+//     card.style.transform = 'translateY(20px)';
+//     setTimeout(() => {
+//       card.style.transition = '0.8s ease';
+//       card.style.opacity = 1;
+//       card.style.transform = 'translateY(0)';
+//     }, 400 * (i + 1));
+//   });
+// })();
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const gauges = document.querySelectorAll(".gauge-fill");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const fill = entry.target;
+        const percent = fill.getAttribute("data-percent");
+        fill.style.width = percent + "%";
+      }
+    });
+  }, { threshold: 0.3 });
+
+  gauges.forEach(gauge => observer.observe(gauge));
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const gauges = document.querySelectorAll(".gauge-fill");
+  const labels = document.querySelectorAll(".gauge-label");
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const fill = entry.target;
+        const percent = parseInt(fill.dataset.percent);
+        fill.style.width = percent + "%";
+
+        // 해당 게이지의 label 찾기
+        const label = fill.closest(".gauge-item").querySelector(".gauge-label");
+        const target = parseInt(label.dataset.target);
+        let count = 0;
+
+        const counter = setInterval(() => {
+          count++;
+          label.textContent = count + "%";
+          if (count >= target) {
+            clearInterval(counter);
+          }
+        }, 20); // 숫자 증가 속도 조절 (20ms마다 1씩 증가)
+      }
+    });
+  }, { threshold: 0.3 });
+
+  gauges.forEach(gauge => observer.observe(gauge));
+});
