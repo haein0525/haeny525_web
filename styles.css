@@ -521,11 +521,11 @@ ul {
 @media (max-width:480px) {
   .visual-card {
     transform: translateY(-20px);
-    padding: 3px;
+    padding:10px;
   }
 
   .visual-card img {
-    height: 180px
+    height: 190px
   }
   .stats-grid {
     gap: 10px; /* 16px -> 10px */
@@ -544,6 +544,11 @@ ul {
     margin-top: 6px; /* 8px -> 6px */
     font-size: 13px; /* 14px -> 13px */
   }
+
+  .chip-top {
+  top: -47px;
+  right: 23%;
+}
 }
 
 /* ===============================
@@ -692,6 +697,12 @@ ul {
     font-size: 12px;
     color: #9e7f6a;
   }
+
+  .grid .card {
+  border: none;
+  transition: opacity .25s, transform .25s;
+}
+
 }
 
 /* ===============================
@@ -892,7 +903,7 @@ ul {
     align-items: flex-start;
     gap: 2px;
     line-height: 1.55;
-    font-size: 10px;
+    font-size: 14px;
     margin-bottom: 4px;
     /* ← 여백 축소 */
     word-break: keep-all;
