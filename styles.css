@@ -411,7 +411,7 @@ ul {
   padding: 40px 16px 80px;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 56px;
+  gap: 80px;
 }
 
 .col {
@@ -546,7 +546,7 @@ ul {
   }
 
   .chip-top {
-  top: -47px;
+  top: -15px;
   right: 23%;
 }
 }
