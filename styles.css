@@ -514,12 +514,35 @@ ul {
 
   .visual-card {
     transform: translateY(-20px);
+    padding: 3px;
   }
 }
 
 @media (max-width:480px) {
+  .visual-card {
+    transform: translateY(-20px);
+    padding: 3px;
+  }
+
   .visual-card img {
-    height: auto;
+    height: 180px
+  }
+  .stats-grid {
+    gap: 10px; /* 16px -> 10px */
+  }
+
+  .stat {
+    padding: 12px 10px; /* 18px 14px -> 12px 10px */
+    min-height: 90px;  /* 110px -> 90px (조절 가능) */
+  }
+
+  .stat strong {
+    font-size: 22px; /* 28px -> 22px (조절 가능) */
+  }
+
+  .stat span {
+    margin-top: 6px; /* 8px -> 6px */
+    font-size: 13px; /* 14px -> 13px */
   }
 }
 
@@ -915,7 +938,15 @@ ul {
     margin-bottom: 0;
     white-space: nowrap;
   }
-
+  
+  .resume-topbar .top-title {
+    font-size: 13px;   /* <-- 폰트 크기를 줄입니다 (조절 가능) */
+    letter-spacing: 0px; /* <-- 자간(글자 사이 간격)을 0으로 줄임 */
+  }
+  .resume-body h3.sect + p {
+    font-size: 14px;  /* 15px -> 14px (조절 가능) */
+    line-height: 1.7; /* 줄 간격도 살짝 조절 (선택 사항) */
+  }
   
 } 
 
