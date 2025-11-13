@@ -451,7 +451,7 @@ ul {
 
 .chip-top {
   top: 14px;
-  right: 36%;
+  right: 15%;
 }
 
 .chip-bottom {
@@ -903,7 +903,7 @@ ul {
     align-items: flex-start;
     gap: 2px;
     line-height: 1.55;
-    font-size: 14px;
+    font-size: 13px;
     margin-bottom: 4px;
     /* ← 여백 축소 */
     word-break: keep-all;
