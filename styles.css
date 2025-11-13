@@ -336,7 +336,7 @@ ul {
 
 .skill-badges {
   display: flex;
-  gap: 18px;
+  gap: 9px;
   flex-wrap: wrap;
   margin-top: 12px;
   padding-left: 23px;
@@ -519,7 +519,7 @@ ul {
 
 @media (max-width:480px) {
   .visual-card img {
-    height: 300px;
+    height: auto;
   }
 }
 
@@ -869,7 +869,7 @@ ul {
     align-items: flex-start;
     gap: 2px;
     line-height: 1.55;
-    font-size: 14px;
+    font-size: 10px;
     margin-bottom: 4px;
     /* ← 여백 축소 */
     word-break: keep-all;
@@ -899,7 +899,26 @@ ul {
     font-size: 15px;
     margin-bottom: 12px;
   }
+  .sect {
+  white-space: nowrap; /* 텍스트가 한 줄로 표시되도록 강제 */
 }
+}
+@media (max-width:540px) {
+  /* ▼▼▼ 보유 역량 뱃지 모바일 전용 스타일 ▼▼▼ */
+  .skill-badges li {
+    padding: 1px 0;    
+    width: 33px;      
+    height: 33px;    
+  }
+  .skill-badges li span {
+    font-size: 12px;
+    margin-bottom: 0;
+    white-space: nowrap;
+  }
+
+  
+} 
+
 
 /* ===================== Contact & Last Section ===================== */
 
